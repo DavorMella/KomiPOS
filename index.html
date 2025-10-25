@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LocaPOS - Sistema de Comandas</title>
+
+  <!-- Fuentes y librerías -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+
+  <style>
+    :root {
+      --color-primary: #4f46e5;
+      --color-secondary: #6366f1;
+      --color-dark: #1e293b;
+      --color-bg: #f9fafb;
+      --color-whatsapp: #25d366;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-dark);
+      line-height: 1.7;
+    }
+
+    /* ---- Hero ---- */
+    header {
+      height: 100vh;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      opacity: 0.9;
+    }
+
+    .btn {
+      background-color: white;
+      color: var(--color-primary);
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--color-secondary);
+      color: white;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    /* ---- Secciones ---- */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    section h2 {
+      color: var(--color-primary);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .text {
+      flex: 1 1 400px;
+      text-align: left;
+    }
+
+    .image {
+      flex: 1 1 400px;
+      text-align: center;
+    }
+
+    .image img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .image img:hover {
+      transform: scale(1.03);
+    }
+
+    /* ---- CTA WhatsApp ---- */
+    .cta {
+      text-align: center;
+      padding: 5rem 1rem;
+      background-color: #eef2ff;
+    }
+
+    .cta h3 {
+      color: var(--color-dark);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta p {
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .cta a {
+      background-color: var(--color-whatsapp);
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cta a:hover {
+      background-color: #1ebe5d;
+      transform: translateY(-3px);
+    }
+
+    .cta i {
+      font-size: 1.3rem;
+    }
+
+    /* ---- Footer ---- */
+    footer {
+      background-color: var(--color-dark);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    footer h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    footer p {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      section:nth-child(even) {
+        flex-direction: column;
+      }
+
+      .text {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header data-aos="fade-up">
+    <h1>KomiPOS</h1>
+    <p>Agiliza tus pedidos, optimiza tu servicio y controla todo tu restaurante desde un solo lugar.</p>
+    <a href="#mesero" class="btn">Ver más</a>
+  </header>
+
+  <!-- SECCIÓN 1 -->
+  <section id="mesero" data-aos="fade-up">
+    <div class="text">
+      <h2>Pantalla principal del mesero</h2>
+      <p>Desde la vista móvil, los meseros pueden ver todas las mesas disponibles, seleccionar una y comenzar a tomar pedidos de manera rápida y sencilla.</p>
+    </div>
+    <div class="image">
+      <img src="imagenes/principal.jpg"Vista móvil del mesero">
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2 -->
+  <section id="pedido" data-aos="fade-up">
+    <div class="text">
+      <h2>Creación de pedidos y envío a cocina</h2>
+      <p>Al seleccionar una mesa, se abre el panel de productos. El mesero puede añadir ítems al pedido y enviarlo directamente a cocina, 
+      donde se imprime automáticamente en la impresora térmica.</p>
+    </div>
+    <div class="image">
+      <img src="imagenes/productos.jpg" alt="Panel de productos para crear pedido">
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3 -->
+  <section id="admin" data-aos="fade-up">
+    <div class="text">
+      <h2>Panel administrativo</h2>
+      <p>Solo los administradores tienen acceso a este panel.</p>
+    </div>
+    <div class="image">
+      <img src="imagenes/admin1.jpg"Panel de administración">
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4 -->
+  <section id="historial" data-aos="fade-up">
+    <div class="text">
+      <h2>Historial y exportación de pedidos</h2>
+      <p>El historial de pedidos permite revisar todas las órdenes enviadas, editar y borrar pedidos. El administrador puede exportar fácilmente 
+      los registros a Excel para un control más completo.</p>
+    </div>
+    <div class="image">
+      <img src="imagenes/historial1.jpg" alt="Historial de pedidos y exportación a Excel">
+    </div>
+  </section>
+
+  <!-- CTA WHATSAPP -->
+  <div class="cta" data-aos="zoom-in">
+    <h3>¿Quieres más información?</h3>
+    <p>Contáctanos por WhatsApp y te contamos cómo ComandApp puede mejorar la gestión de tu restaurante.</p>
+    <a href="https://wa.me/56982052552?text=Hola,%20quiero%20más%20información%20sobre%20el%20sistema%20de%20comandas." target="_blank">
+      <i class="fab fa-whatsapp"></i>WhatsApp
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <h4>Sistema en desarrollo</h4>
+    <p>Pronto más novedades...</p>
+  </footer>
+
+  <!-- Librerías JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+</body>
+</html>
